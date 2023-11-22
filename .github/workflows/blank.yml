@@ -40,4 +40,4 @@ jobs:
           #git reset --hard ${{ steps.out-hash.outputs.release-hash }}
           #git revert --no-edit HEAD^..${{ steps.out-hash.outputs.release-hash }}
           #git push
-          git log --pretty=format:"%H" ${{ steps.out-hash.outputs.release-hash }}..HEAD | xargs git revert -m 1 --no-edit
+          git log --pretty=format:"%H" ${{ steps.out-hash.outputs.release-hash }}..HEAD | xargs git revert -m 1 --continue --no-edit
