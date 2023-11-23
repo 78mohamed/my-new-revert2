@@ -41,4 +41,6 @@ jobs:
           #git revert --no-edit HEAD^..${{ steps.out-hash.outputs.release-hash }}
           #git push
           #git log --pretty=format:"%H" ${{ steps.out-hash.outputs.release-hash }}..HEAD | xargs git revert -m 1 --no-edit
-          git revert --no-edit HEAD~3..
+          commit_count=$(git rev-list --count HEAD..${{ steps.out-hash.outputs.release-hash }})
+          echo "Number of commits: $commit_count"
+          #git revert --no-edit HEAD~3..
