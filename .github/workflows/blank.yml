@@ -28,6 +28,7 @@ jobs:
         id: out-hash
         run: |
           hash=$(git show-ref --tags -s ${{ github.event.inputs.release }})
+          echo $hash
           echo "release-hash=$hash" >> $GITHUB_OUTPUT
       
       
