@@ -44,4 +44,4 @@ jobs:
           commit_count=$(git rev-list --count ${{ steps.out-hash.outputs.release-hash }}..HEAD)
           echo "Number of commits: $commit_count"
           git log --pretty=format:"%H" ${{ steps.out-hash.outputs.release-hash }}..HEAD
-          git revert --no-edit HEAD~${ commit_count }..
+          git revert --no-edit HEAD~19..
