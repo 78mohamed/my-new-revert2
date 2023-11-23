@@ -38,12 +38,5 @@ jobs:
           git rev-parse HEAD
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          #git reset --hard ${{ steps.out-hash.outputs.release-hash }}
-          #git revert --no-edit HEAD^..${{ steps.out-hash.outputs.release-hash }}
-          #git push
-          #git log --pretty=format:"%H" ${{ steps.out-hash.outputs.release-hash }}..HEAD | xargs git revert -m 1 --no-edit
-          commit_count=$(git rev-list --count ${{ steps.out-hash.outputs.release-hash }}..HEAD)
-          echo "Number of commits: $commit_count"
           git log --pretty=format:"%H" ${{ steps.out-hash.outputs.release-hash }}..HEAD
-          git revert --no-edit -m 1 HEAD~24..
-          #dummy commit3
+          git revert --no-edit -n HEAD..${{ steps.out-hash.outputs.release-hash }}
